@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KeyVaultSample
 {
-    static class Program
+    class Program
     {
         const string CLIENT_ID = "ef408b79-2afc-4204-8dad-b422f17e15ee";
         const string CLIENT_SECRET = "SQvyGbWQh7iAoVi3aHCOlxdbaOwVXunp70r9eaSypEk=";
@@ -35,19 +35,6 @@ namespace KeyVaultSample
             var authResult = await context.AcquireTokenAsync(resource, clientCred);
             return authResult.AccessToken;
         }));
-
-        static string ToHexString(this byte[] hex)
-        {
-            if (hex == null) return null;
-            if (hex.Length == 0) return string.Empty;
-
-            var s = new StringBuilder();
-            foreach (byte b in hex)
-            {
-                s.Append(b.ToString("x2"));
-            }
-            return s.ToString();
-        }
 
     }
 }
